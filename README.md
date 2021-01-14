@@ -4,15 +4,20 @@ This is a light-weight and opinionated wrapper around jQuery Datatables which in
 
 ## Requirements
 
-This script assumes that jQuery, jQuery Datatables, and Fontawesome have all been loaded first. One way to do this is to add the following before this script is run:
+This script assumes that jQuery, jQuery Datatables, and Fontawesome have all been loaded first. One way to do this is the following:
 
 ```
 <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/open-sdg/open-sdg-table/open-sdg-table.min.js"></script>
 ```
 
-Note if you want to use any special features of jQuery Datables beyond sorting then you may need to load the jQuery Datatables CSS file. Otherwise it is not necessarily required.
+Note if you want to use any special features of jQuery Datables beyond sorting then you may need to load the jQuery Datatables CSS file. Otherwise it is not necessarily required. Regardless, you should load this library's CSS file in your `<head>`:
+
+```
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/open-sdg/open-sdg-table/open-sdg-table.min.css">
+```
 
 ## Usage
 
