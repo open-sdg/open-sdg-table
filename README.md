@@ -1,4 +1,4 @@
-# Open SDG Tables
+# Open SDG Table
 
 This is a light-weight and opinionated wrapper around jQuery Datatables which includes some accessibility improvements that have been requested in Open SDG projects.
 
