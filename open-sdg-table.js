@@ -19,8 +19,7 @@
         };
         $.extend(options, optionOverrides);
 
-        var lastColumn = Object.keys(tableRows[0]).length - 1;
-        function getColumn(title, index) {
+        function getColumn(title) {
             var button = '<span tabindex="0" role="button" aria-describedby="column-sort-info">' + title + '</span>';
             var arrows = '<span class="sort"><i class="fa fa-sort-down"></i><i class="fa fa-sort-up"></i></span>';
             return {
