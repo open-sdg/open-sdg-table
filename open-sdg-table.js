@@ -17,7 +17,7 @@
                 aaSorting: [],
             },
         };
-        $.extend(options, optionOverrides);
+        $.extend(true, options, optionOverrides);
 
         function getColumn(title) {
             var button = '<span tabindex="0" role="button" aria-describedby="column-sort-info">' + title + '</span>';
