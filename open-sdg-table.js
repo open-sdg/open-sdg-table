@@ -21,7 +21,7 @@
 
         function getColumn(title) {
             var button = '<span tabindex="0" role="button" aria-describedby="column-sort-info">' + title + '</span>';
-            var arrows = '<span class="sort"><i class="fa fa-sort-down"></i><i class="fa fa-sort-up"></i></span>';
+            var arrows = '<span class="sort"><i class="fa fa-sort"></i><i class="fa fa-sort-down"></i><i class="fa fa-sort-up"></i></span>';
             return {
                 title: button + arrows,
                 data: title,

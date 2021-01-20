@@ -2,17 +2,33 @@
 .open-sdg-table .sort {
     background-image: none !important;
 }
-.open-sdg-table .fa-sort-down, .open-sdg-table .fa-sort-up {
+
+.open-sdg-table .fa-sort-down, .open-sdg-table .fa-sort-up, .open-sdg-table .fa-sort {
     display: none;
     margin-left: 5px;
     margin-right: 5px;
 }
+.open-sdg-table .fa-sort {
+    display: inline-block;
+}
 .open-sdg-table th[aria-sort="descending"] .fa-sort-down {
     display: inline-block;
+}
+.open-sdg-table th[aria-sort="descending"] .fa-sort {
+    display: none;
 }
 .open-sdg-table th[aria-sort="ascending"] .fa-sort-up {
     display: inline-block;
 }
+.open-sdg-table th[aria-sort="ascending"] .fa-sort {
+    display: none;
+}
 .open-sdg-table th [role="button"] {
     cursor: pointer;
+}
+.open-sdg-table .sorting_disabled .sort {
+    display: none;
+}
+.open-sdg-table .sorting_disabled [role="button"] {
+    cursor: default;
 }
