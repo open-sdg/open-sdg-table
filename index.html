@@ -1,0 +1,25 @@
+<!-- This file just for local testing of the library. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testing open-sdg-tables</title>
+    <link rel="stylesheet" href="./open-sdg-table.css">
+</head>
+<body>
+    <table id="my-table"></table>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="./open-sdg-table.js"></script>
+    <script>
+    var tableRows = [
+        { Year: 2010, Value: 10 },
+        { Year: 2011, Value: 11 },
+    ]
+    var options = {
+        datatableConfig: {}
+    };
+    $('#my-table').openSdgTable(tableRows, options);
+    </script>
+</body>
+</html>
