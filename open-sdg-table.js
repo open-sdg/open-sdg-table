@@ -27,12 +27,21 @@
                 data: title,
             };
         }
+
+        function cleanHeader(header) {
+            $(header)
+                .removeAttr('rowspan')
+                .removeAttr('colspan')
+                .removeAttr('aria-label');
+        }
+
         function fixHeaders(thead) {
             $(thead).find('th')
                 .removeAttr('tabindex')
                 .click(function() {
                     var sortDirection = $(this).attr('aria-sort');
                     $(this).find('span[role="button"]').attr('aria-sort', sortDirection);
+                    cleanHeader(this);
                 });
         }
 
@@ -53,9 +62,9 @@
         // Fix some problems that jQuery Datatables causes.
         this.removeAttr('role')
             .find('thead th')
-                .removeAttr('rowspan')
-                .removeAttr('colspan')
-                .removeAttr('aria-label');
+                .each(function(index, el) {
+                    cleanHeader(el);
+                });
 
         return this;
     };
