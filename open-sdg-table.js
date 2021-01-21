@@ -19,6 +19,8 @@
         };
         $.extend(true, options, optionOverrides);
 
+        var that = this;
+
         function getColumn(title) {
             var button = '<span tabindex="0" role="button" aria-describedby="column-sort-info">' + title + '</span>';
             var arrows = '<span class="sort"><i class="fa fa-sort"></i><i class="fa fa-sort-down"></i><i class="fa fa-sort-up"></i></span>';
@@ -28,20 +30,25 @@
             };
         }
 
-        function cleanHeader(header) {
-            $(header)
+        function cleanHeaders() {
+            that.find('thead th')
                 .removeAttr('rowspan')
                 .removeAttr('colspan')
                 .removeAttr('aria-label');
         }
 
-        function fixHeaders(thead) {
+        function cleanTable() {
+            that.removeAttr('role');
+        }
+
+        function initializeHeaders(thead) {
             $(thead).find('th')
                 .removeAttr('tabindex')
                 .click(function() {
                     var sortDirection = $(this).attr('aria-sort');
                     $(this).find('span[role="button"]').attr('aria-sort', sortDirection);
-                    cleanHeader(this);
+                    // Clean headers again because of what jQuery Datatables does.
+                    cleanHeaders();
                 });
         }
 
@@ -51,7 +58,7 @@
 
         options.datatableConfig.data = tableRows;
         options.datatableConfig.columns = Object.keys(tableRows[0]).map(getColumn);
-        options.datatableConfig.headerCallback = fixHeaders;
+        options.datatableConfig.headerCallback = initializeHeaders;
 
         // Create the datatable.
         this.html('')
@@ -60,11 +67,8 @@
             .DataTable(options.datatableConfig);
 
         // Fix some problems that jQuery Datatables causes.
-        this.removeAttr('role')
-            .find('thead th')
-                .each(function(index, el) {
-                    cleanHeader(el);
-                });
+        cleanTable();
+        cleanHeaders();
 
         return this;
     };
